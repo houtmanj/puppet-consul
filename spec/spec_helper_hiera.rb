@@ -6,7 +6,7 @@
 # requiring the whole puppet environment.
 
 class FakeFunction
-  def self.dispatch(*); end
+  def self.dispatch(name, &block); end
 end
 
 module Puppet
@@ -16,7 +16,7 @@ module Puppet
     # ruby functions and loads the specification into FakeFunction.
     #
     def self.create_function(_name, &block)
-      FakeFunction.class_eval(&block)
+      # FakeFunction.class_eval(&block)
     end
   end
 end
